@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yuzyi's First Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- RENDA + MENU -->
+  <header>
+    <div class="renda"></div>
+    <nav>
+      <a href="#hello" class="active">Hello</a>
+      <a href="#biodata">Biodata</a>
+      <a href="#favorite">Favorite</a>
+      <a href="#family">Family</a>
+      <a href="#things">Things</a>
+    </nav>
+  </header>
+
+  <!-- 1. HELLO -->
+  <section id="hello">
+    <h1>HELLO ! I'M Yuzyi</h1>
+    <p>Welcome to my FIRST website ! Scroll down to see who i am, what kinda game i love, something i hate and many more !</p>
+    <a class="btn" href="#biodata">Get to know me!</a>
+    <img src="images/columbina-kanan.png" alt="chibi character left">
+    <img src="images/columbina-kiri.png" alt="chibi character right">
+  </section>
+
+  <!-- 2. BIODATA -->
+  <section id="biodata">
+    <h2>Personal Details !</h2>
+    <p>Hello Im yuzyi ! thats the name i use in game XD !</p>
+    <p>I'm 19 gonna be 20 next year (omg)</p>
+    <p>i'm a cybersecurity engineering 1st year</p>
+    <p>and i'm from indonesia ! NTMY</p>
+    <img src="images/elysia-kanan.png" alt="chibi character left">
+    <img src="images/elysia-kiri.png" alt="chibi character right">
+  </section>
+
+  <!-- 3. FAVORITE -->
+  <section id="favorite">
+    <h2>Favorite Things !</h2>
+    <p>i love playing games like genshin ! ✧</p>
+    <p>My fav food is fried rice XD</p>
+    <p>i like designing stuff and doing art on ibis paint</p>
+    <p>i also love eating (a lot, lol) and listening to music</p>
+    <p>And pastel colors are my fav ! 🌸</p>
+    <img src="images/elysia-kanan.png" alt="chibi character left">
+    <img src="images/elysia-kiri.png" alt="chibi character right">
+  </section>
+
+  <!-- 4. FAMILY -->
+  <section id="family">
+    <h2>My Family !</h2>
+    <p>i'm the eldest daughter with 3 younger siblings ! ✧</p>
+    <p>i also have lots of cousins, aunties, and uncles</p>
+    <p>my family is super fun and always so kind to me</p>
+    <p>i'm really grateful for them 🌸</p>
+    <img src="images/elysia-kanan.png" alt="chibi character left">
+    <img src="images/elysia-kiri.png" alt="chibi character right">
+  </section>
+
+  <!-- 5. THINGS -->
+  <section id="things">
+    <h2>Many Things !</h2>
+    <p>things i don't like: durian, jackfruit, and bitter food (ew) ✧</p>
+    <p>i love coffee, but NOT the bitter kind XD</p>
+    <p>i joined organizations back in school, and i'm determined to be more active in college than i was in high school !</p>
+    <p>fun fact: i've tried every class position, from chairperson to treasurer, and they were all so fun ♡</p>
+    <p>i'm a girly girl who's still learning makeup 🎀</p>
+    <img src="images/elysia-kanan.png" alt="chibi character left">
+    <img src="images/elysia-kiri.png" alt="chibi character right">
+  </section>
+
+  <!-- 6. CONCLUSION -->
+  <section id="conclusion">
+    <h2>Thank You For Visiting !</h2>
+    <p>thanks for stopping by my FIRST website ! ✧</p>
+    <p>i hope you had fun getting to know me XD</p>
+    <p>see you again soon, and stay cute !!</p>
+    <a class="btn" href="#hello">Back to top</a>
+    <img src="images/aino-kanan.png" alt="chibi character left">
+    <img src="images/aino-kiri.png" alt="chibi character right">
+  </section>
+
+  <footer>made with ♡ by yuzyi, 2026</footer>
+
+  <!-- MENU AKTIF OTOMATIS -->
+  <script>
+    const links = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          links.forEach((link) => link.classList.remove("active"));
+          const aktif = document.querySelector('nav a[href="#' + entry.target.id + '"]');
+          if (aktif) aktif.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-40% 0px -40% 0px" });
+
+    sections.forEach((section) => observer.observe(section));
+
+    const header = document.querySelector("header");
+    function setHeaderHeight() {
+      document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
+    }
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
+  </script>
+
+</body>
+</html>
